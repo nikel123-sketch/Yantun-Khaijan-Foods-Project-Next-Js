@@ -6,7 +6,9 @@ const Navber = () => {
   return (
     <div className="flex justify-between items-center bg-slate-800 font-bold p-2 rounded-xl">
       <div className="text-2xl text-amber-50">
-        <Link href="/">Foods</Link>
+        <Link className="text-emerald-400" href="/">
+        Yantun Khaijan
+        </Link>
       </div>
 
       <div className="flex gap-2">

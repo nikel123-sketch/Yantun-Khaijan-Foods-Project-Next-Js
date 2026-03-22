@@ -27,7 +27,7 @@ const ReviewsCard = ({ coustomerreview }) => {
 
       {/* Review */}
       <p className="text-gray-700 leading-relaxed">
-        {review.length > 120 ? review.slice(0, 120) + "..." : review}
+        {review}
       </p>
 
       {/* Footer */}
