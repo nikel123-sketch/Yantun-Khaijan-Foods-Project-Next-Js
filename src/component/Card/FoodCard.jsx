@@ -1,0 +1,48 @@
+"use client";
+
+import Link from "next/link";
+import React from "react";
+
+const FoodCard = ({ food }) => {
+  const { id, catId, category, foodImg, price, title } = food;
+
+  return (
+    <div className="bg-white shadow-xl rounded-2xl p-4 border border-gray-200 hover:shadow-2xl transition">
+      {/* Image */}
+      <img
+        src={foodImg}
+        alt={title}
+        className="w-full h-48 object-cover rounded-xl mb-3 border-4 border-green-500"
+      />
+
+      {/* Content */}
+      <div className="space-y-2">
+        <h2 className="text-xl font-bold text-gray-800">{title}</h2>
+
+        <p className="text-sm text-gray-500">
+          Category: <span className="font-semibold">{category}</span>
+        </p>
+
+        <p className="text-lg font-bold text-amber-500">${price}</p>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex gap-2 mt-4">
+        {/* Add to Cart */}
+        <button className="flex-1 bg-green-500 text-white py-1.5 rounded-lg hover:bg-green-600 transition">
+          Add to Cart
+        </button>
+
+        {/* Details */}
+        <Link
+          href={`/foods/${id}`}
+          className="flex-1 text-center bg-blue-500 text-white py-1.5 rounded-lg hover:bg-blue-600 transition"
+        >
+          Details
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default FoodCard;
