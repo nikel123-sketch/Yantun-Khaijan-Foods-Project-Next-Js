@@ -1,10 +1,32 @@
+import ReviewsCard from '@/component/Card/ReviewsCard';
 import React from 'react';
 
-const ReviewsPage = () => {
+
+const getreviews=async()=>{
+const res = await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/reviews`);
+const data=await res.json();
+return data.reviews;
+}
+const ReviewsPage =async () => {
+    const reviews=await getreviews()
+
+    
     return (
-        <div>
-            reviews page
+      <div>
+        <div className="">
+          <h1 className=" underline font-bold text-center text-2xl">
+            Totails Reviews{reviews.length}
+          </h1>
         </div>
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          {reviews.map((review) => (
+            <ReviewsCard
+              key={review.id}
+              coustomerreview={review}
+            ></ReviewsCard>
+          ))}
+        </div>
+      </div>
     );
 };
 
