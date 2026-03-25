@@ -16,6 +16,7 @@ const Navber = () => {
           href="/"
           className="text-2xl font-extrabold text-emerald-400 "
         >
+          <img src="../public/logo.png" alt="" />
           🍽️ Yantun Khaijan
         </Link>
 

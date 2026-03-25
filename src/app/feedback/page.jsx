@@ -1,5 +1,14 @@
 import React from 'react';
 
+
+
+
+
+export const metadata = {
+  title: "Feedback | Yantun Khaijan Foods Restaurant",
+  description:
+    "Explore delicious foods at Yantun Khaijan. Discover a variety of meals, reviews, and order your favorite dishes online.",
+};
 const FeedbackPage = () => {
     return (
         <div>

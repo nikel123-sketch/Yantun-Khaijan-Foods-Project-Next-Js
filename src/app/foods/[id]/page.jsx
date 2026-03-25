@@ -1,6 +1,23 @@
 import Link from "next/link";
 import React from "react";
 
+export async function generateMetadata({ params }) {
+  const {id}=await params;
+
+  const res = await fetch(
+    `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`,
+  )
+  const data=await res.json();
+  const fooddata=data.details;
+
+  return {
+    title: fooddata?.title || "Food Details",
+    description: `Details about ${fooddata?.title || "food item"}`,
+  };
+
+}
+
+
 // Server-side fetch for a single food
 const getSingleData = async (id) => {
   const res = await fetch(

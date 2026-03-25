@@ -1,20 +1,31 @@
+
+
 import FoodCard from "@/component/Card/FoodCard";
 import CartItem from "@/component/CartItem/CartItem";
 import InputSearch from "@/component/InputSharch/InputSharch";
 import React from "react";
 
+
+
 const getfoods = async (search) => {
   const res = await fetch(
     `https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`,
-    
+    {next:{revalidate:20}}
   );
 
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
 
   return data.foods || [];
 };
 
+
+
+export const metadata = {
+  title: "Foods | Yantun Khaijan Foods Restaurant",
+  description:
+    "Explore delicious foods at Yantun Khaijan. Discover a variety of meals, reviews, and order your favorite dishes online.",
+};
 const FoodsPage = async ({ searchParams }) => {
   
   const { search = "" } = await searchParams;
