@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import NavLink from "../Active/NavLink.jsx";
 import CartItem from "../CartItem/CartItem.jsx";
+import InputSearch from "../InputSharch/InputSharch.jsx";
 
 const Navber = () => {
   const [open, setOpen] = useState(false);
@@ -17,6 +18,10 @@ const Navber = () => {
         >
           🍽️ Yantun Khaijan
         </Link>
+
+        <div className="">
+          <InputSearch></InputSearch>
+        </div>
 
         <div className="hidden md:flex gap-6 items-center bg-gradient-to-r from-blue-700 to-cyan-600 px-6 py-2 rounded-full shadow-md">
           <NavLink href="/">Home</NavLink>

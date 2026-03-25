@@ -1,9 +1,9 @@
 import FoodCard from "@/component/Card/FoodCard";
 import React from "react";
 
-const getfoods = async () => {
+const getfoods = async (search) => {
   const res = await fetch(
-    "https://taxi-kitchen-api.vercel.app/api/v1/foods/random",
+    `https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`,
     
   );
 
@@ -13,8 +13,11 @@ const getfoods = async () => {
   return data.foods || [];
 };
 
-const FoodsPage = async () => {
-  const foods = await getfoods();
+const FoodsPage = async ({ searchParams }) => {
+  
+  const { search = "" } = await searchParams;
+  
+  const foods = await getfoods(search);
 
   return (
     <div>
