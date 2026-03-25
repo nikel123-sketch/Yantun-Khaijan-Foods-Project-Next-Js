@@ -18,8 +18,7 @@ const Navber = () => {
           🍽️ Yantun Khaijan
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 items-center">
+        <div className="hidden md:flex gap-6 items-center bg-gradient-to-r from-blue-700 to-cyan-600 px-6 py-2 rounded-full shadow-md">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/foods">Foods</NavLink>
           <NavLink href="/reviews">Reviews</NavLink>
