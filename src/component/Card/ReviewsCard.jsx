@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const ReviewsCard = ({ coustomerreview }) => {
@@ -7,10 +8,12 @@ const ReviewsCard = ({ coustomerreview }) => {
     <div className="bg-white shadow-lg rounded-2xl p-5 border border-gray-200 hover:shadow-xl transition space-y-4">
       {/* User Info */}
       <div className="flex items-center gap-4">
-        <img
+        <Image
           src={photo}
           alt={user}
-          className="w-12 h-12 rounded-full object-cover border"
+          width={50}
+          height={30}
+          className=" rounded-full object-cover border"
         />
 
         <div>

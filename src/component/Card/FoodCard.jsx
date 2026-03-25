@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import Add2Cart from "../Button/Add2Cart";
+import Image from "next/image";
 
 const FoodCard = ({ food }) => {
  
@@ -10,10 +11,12 @@ const FoodCard = ({ food }) => {
   return (
     <div className="bg-white shadow-xl rounded-2xl p-4 border border-gray-200 hover:shadow-2xl transition">
       {/* Image */}
-      <img
+      <Image
         src={foodImg}
         alt={title}
-        className="w-full h-48 object-cover rounded-xl mb-3 border-4 border-green-500"
+        width={400} // bigger width
+        height={400} // bigger height
+        className="w-full rounded-xl mb-3 border-4 border-green-500"
       />
 
       {/* Content */}
