@@ -1,28 +1,53 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import NavLink from "../Active/NavLink.jsx";
 import CartItem from "../CartItem/CartItem.jsx";
 
 const Navber = () => {
-  return (
-    <div className="flex justify-between items-center bg-slate-800 font-bold p-2 rounded-xl">
-      <div className="text-2xl text-amber-50">
-        <Link className="text-emerald-400" href="/">
-        Yantun Khaijan
-        </Link>
-      </div>
-        
-     <div className="">
-      <CartItem></CartItem>
-     </div>
+  const [open, setOpen] = useState(false);
 
-      <div className="flex gap-2">
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/foods">Foods</NavLink>
-        <NavLink href="/reviews">Reviews</NavLink>
-        <NavLink href="/feedback">Feedback</NavLink>
+  return (
+    <nav className="bg-slate-900 text-white shadow-md sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="text-2xl font-extrabold text-emerald-400 tracking-wide"
+        >
+          🍽️ Yantun Khaijan
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-6 items-center">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/foods">Foods</NavLink>
+          <NavLink href="/reviews">Reviews</NavLink>
+          <NavLink href="/feedback">Feedback</NavLink>
+        </div>
+
+        {/* Right Side */}
+        <div className="flex items-center gap-4">
+          {/* Cart */}
+          <CartItem />
+
+          {/* Mobile Menu Button */}
+          <button onClick={() => setOpen(!open)} className="md:hidden text-2xl">
+            {open ? "✖" : "☰"}
+          </button>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden bg-slate-800 px-4 pb-4 flex flex-col gap-3">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/foods">Foods</NavLink>
+          <NavLink href="/reviews">Reviews</NavLink>
+          <NavLink href="/feedback">Feedback</NavLink>
+        </div>
+      )}
+    </nav>
   );
 };
 
