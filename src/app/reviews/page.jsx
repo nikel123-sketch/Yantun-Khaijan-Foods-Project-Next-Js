@@ -1,5 +1,6 @@
 
 import ReviewsCard from "@/component/Card/ReviewsCard";
+import { Anek_Bangla } from "next/font/google";
 import React from "react";
 
 const getreviews = async () => {
@@ -15,11 +16,15 @@ export const metadata = {
     "Explore delicious foods at Yantun Khaijan. Discover a variety of meals, reviews, and order your favorite dishes online.",
 };
 
+
+const anekfont=Anek_Bangla({
+  weight:'400'
+})
 const ReviewsPage = async () => {
   const reviews = await getreviews();
 
   return (
-    <div>
+    <div className={`${anekfont.className}`}>
       <div className="">
         <h1 className=" underline font-bold text-center text-2xl">
           Totails Reviews{reviews.length}

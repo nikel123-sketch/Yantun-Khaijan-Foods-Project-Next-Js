@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import Navber from "@/component/Shared/Navber";
 import CartProvider from "@/contex/CartProvider";
@@ -29,11 +29,16 @@ export const metadata = {
     address: false,
     telephone: false,
 }};
+
+const roboto=Roboto({
+  weight:'500',
+  subsets:['latin']
+})
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${roboto.className} antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <CartProvider>
