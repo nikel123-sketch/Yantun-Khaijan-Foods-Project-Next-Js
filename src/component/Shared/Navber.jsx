@@ -10,18 +10,16 @@ const Navber = () => {
 
   return (
     <nav className="bg-slate-900 text-white shadow-md sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <div className=" flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-extrabold text-emerald-400 tracking-wide"
+          className="text-2xl font-extrabold text-emerald-400 "
         >
           🍽️ Yantun Khaijan
         </Link>
 
-        <div className="">
-          <InputSearch></InputSearch>
-        </div>
+        
 
         <div className="hidden md:flex gap-6 items-center bg-gradient-to-r from-blue-700 to-cyan-600 px-6 py-2 rounded-full shadow-md">
           <NavLink href="/">Home</NavLink>
@@ -31,16 +29,16 @@ const Navber = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center gap-4">
+        
           {/* Cart */}
-          <CartItem />
+          
 
           {/* Mobile Menu Button */}
           <button onClick={() => setOpen(!open)} className="md:hidden text-2xl">
             {open ? "✖" : "☰"}
           </button>
         </div>
-      </div>
+     
 
       {/* Mobile Menu */}
       {open && (

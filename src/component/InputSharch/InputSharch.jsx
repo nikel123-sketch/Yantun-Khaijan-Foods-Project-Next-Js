@@ -1,46 +1,58 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const InputSearch = () => {
+  const [open, setOpen] = useState(false);
   const router = useRouter();
   const inputRef = useRef(null);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const value = form.sharch.value.trim();
+    const value = inputRef.current.value.trim();
 
     if (!value) {
       router.push("/foods");
-      if (inputRef.current) inputRef.current.value = ""; // clear input
       return;
     }
 
     router.push(`/foods?search=${encodeURIComponent(value)}`);
-    if (inputRef.current) inputRef.current.value = ""; // clear input after submit
+    inputRef.current.value = "";
   };
 
   return (
-    <form
-      onSubmit={handleSearch}
-      className="flex items-center bg-white rounded-full overflow-hidden shadow-md"
-    >
-      <input
-        type="text"
-        placeholder="Search food..."
-        name="sharch"
-        ref={inputRef}
-        className="px-4 py-2 w-48 outline-none text-gray-700"
-      />
-
+    <div className="relative flex items-center">
+      {/* Search Icon */}
       <button
-        type="submit"
-        className="bg-emerald-500 text-white px-4 py-2 hover:bg-emerald-600 transition"
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="bg-emerald-500 text-white px-3 py-2 rounded-full"
       >
         🔍
       </button>
-    </form>
+
+      {/* Input Field */}
+      {open && (
+        <form
+          onSubmit={handleSearch}
+          className="ml-2 flex items-center bg-white rounded-full shadow-md overflow-hidden"
+        >
+          <input
+            type="text"
+            placeholder="Search food..."
+            ref={inputRef}
+            className="px-4 py-2 w-48 outline-none text-gray-700"
+          />
+
+          <button
+            type="submit"
+            className="bg-emerald-500 text-white px-4 py-2 hover:bg-emerald-600"
+          >
+            Go
+          </button>
+        </form>
+      )}
+    </div>
   );
 };
 

@@ -1,4 +1,6 @@
 import FoodCard from "@/component/Card/FoodCard";
+import CartItem from "@/component/CartItem/CartItem";
+import InputSearch from "@/component/InputSharch/InputSharch";
 import React from "react";
 
 const getfoods = async (search) => {
@@ -21,9 +23,22 @@ const FoodsPage = async ({ searchParams }) => {
 
   return (
     <div>
-      <h1 className="font-bold text-center text-3xl underline">
-        Total Foods ({foods?.length || 0})
-      </h1>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-5">
+        {/* Search */}
+        <div className="">
+          <InputSearch />
+        </div>
+
+        {/* Title */}
+        <h1 className="font-bold text-2xl md:text-3xl underline text-center">
+          Total Foods ({foods?.length || 0})
+        </h1>
+
+        {/* Cart */}
+        <div>
+          <CartItem />
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {foods?.map((food) => (
