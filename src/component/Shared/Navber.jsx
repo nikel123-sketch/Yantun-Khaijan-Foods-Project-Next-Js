@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import NavLink from "../Active/NavLink.jsx";
+import CartItem from "../CartItem/CartItem.jsx";
 
 const Navber = () => {
   return (
@@ -10,6 +11,10 @@ const Navber = () => {
         Yantun Khaijan
         </Link>
       </div>
+        
+     <div className="">
+      <CartItem></CartItem>
+     </div>
 
       <div className="flex gap-2">
         <NavLink href="/">Home</NavLink>
