@@ -1,8 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
 
 const InputSearch = () => {
   const router = useRouter();
+  const inputRef = useRef(null);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -10,12 +12,13 @@ const InputSearch = () => {
     const value = form.sharch.value.trim();
 
     if (!value) {
-        return router.push('/foods')
+      router.push("/foods");
+      if (inputRef.current) inputRef.current.value = ""; // clear input
+      return;
     }
 
-    // push to /foods with query param
     router.push(`/foods?search=${encodeURIComponent(value)}`);
-    console.log("Search:", value);
+    if (inputRef.current) inputRef.current.value = ""; // clear input after submit
   };
 
   return (
@@ -27,6 +30,7 @@ const InputSearch = () => {
         type="text"
         placeholder="Search food..."
         name="sharch"
+        ref={inputRef}
         className="px-4 py-2 w-48 outline-none text-gray-700"
       />
 
