@@ -14,9 +14,9 @@ const FoodCard = ({ food }) => {
       <Image
         src={foodImg}
         alt={title}
-        width={400} // bigger width
-        height={400} // bigger height
-        className="w-full rounded-xl mb-3 border-4 border-green-500"
+        width={400}
+        height={400}
+        className="w-full h-auto rounded-xl mb-3 border-4 border-green-500"
       />
 
       {/* Content */}

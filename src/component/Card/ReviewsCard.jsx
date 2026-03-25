@@ -13,6 +13,7 @@ const ReviewsCard = ({ coustomerreview }) => {
           alt={user}
           width={50}
           height={30}
+       
           className=" rounded-full object-cover border"
         />
 
@@ -29,9 +30,7 @@ const ReviewsCard = ({ coustomerreview }) => {
       </div>
 
       {/* Review */}
-      <p className="text-gray-700 leading-relaxed">
-        {review}
-      </p>
+      <p className="text-gray-700 leading-relaxed">{review}</p>
 
       {/* Footer */}
       <div className="flex justify-between items-center text-sm text-gray-500">

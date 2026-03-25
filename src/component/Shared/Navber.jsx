@@ -18,7 +18,8 @@ const Navber = () => {
             alt="Yantun Khaijan Logo"
             width={50}
             height={50}
-            className="rounded-full"
+            priority
+            className="rounded-full w-[50px] h-auto"
           />
           <span className="ml-2 text-2xl font-extrabold  text-emerald-400">
             Yantun Khaijan
