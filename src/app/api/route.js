@@ -1,31 +1,15 @@
-export const feedback = [
-  {
-    id: 1,
-    message: "good",
-  },
-  {
-    id: 2,
-    message: "good",
-  },
-  {
-    id:3,
-    message: "good",
-  },
-];
+export const feedback=[
+    {
+        id:1,
+        name:'nikel'
+    }
+]
 
-export async function GET(request){
+
+export async function GET(req){
     return Response.json([
-      {
-        id: 1,
-        message: "good",
-      },
-      {
-        id: 2,
-        message: "good",
-      },
-      {
-        id: 3,
-        message: "good",
-      },
-    ]);
+        {
+            name:'nikel'
+        }
+    ])
 }
