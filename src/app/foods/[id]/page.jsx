@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 
 export async function generateMetadata({ params }) {
@@ -35,11 +36,12 @@ const FoodDetails = async ({ params }) => {
   // Fetch single food
   const food = await getSingleData(id);
 
-  if (!food) {
+  if (!food.title) {
     return (
-      <div className="text-center mt-10 text-red-500 font-bold">
-        Food not found
-      </div>
+      redirect('/foods')
+      // <div className="text-center mt-10 text-red-500 font-bold">
+      //   Food not found
+      // </div>
     );
   }
 
