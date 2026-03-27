@@ -1,6 +1,7 @@
 import React from "react";
+import FeedbackDelete from "../Button/FeedbackDelete";
 
-const FeedbackCard = ({ feedback, onDelete, onUpdate }) => {
+const FeedbackCard = ({ feedback}) => {
   const { _id, name, message, date } = feedback;
 
   return (
@@ -12,22 +13,12 @@ const FeedbackCard = ({ feedback, onDelete, onUpdate }) => {
       <p className="text-gray-600 mt-2">{message}</p>
 
       {/* Date */}
-      <p className="text-sm text-gray-400 mt-3">
-        {date}
-      </p>
+      <p className="text-sm text-gray-400 mt-3">{date}</p>
 
       {/* Buttons */}
       <div className="mt-4 flex gap-3">
-        <button
-          
-          className="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-600 transition"
-        >
-          Delete
-        </button>
-        <button
-          
-          className="bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition"
-        >
+        <FeedbackDelete  feedback={feedback}></FeedbackDelete>
+        <button className="bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition">
           Update
         </button>
       </div>
