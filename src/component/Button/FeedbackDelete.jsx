@@ -1,8 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 import Swal from "sweetalert2";
 
 const FeedbackDelete = ({ feedback }) => {
+  const route=useRouter()
   const { _id } = feedback;
 
   const handleDelete = async (_id) => {
@@ -31,6 +33,7 @@ const FeedbackDelete = ({ feedback }) => {
             text: "Feedback deleted successfully",
             icon: "success",
           });
+          route.refresh()
         } else {
           Swal.fire("Failed!", "Delete failed", "error");
         }

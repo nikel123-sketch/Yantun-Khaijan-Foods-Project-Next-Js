@@ -1,4 +1,5 @@
 import { ObjectId } from "mongodb";
+import { revalidatePath } from "next/cache";
 
 const { connect } = require("@/app/lib/dbConnect");
 
@@ -35,6 +36,7 @@ export async function DELETE(req,{params}){
       }
     const query={_id:new ObjectId(id)};
     const result=await feedbackColl.deleteOne(query);
+    revalidatePath('/feedback')
     return Response.json(result)
 }
 
@@ -75,5 +77,6 @@ export async function PATCH(req,{params}){
   }
 
   const result=await feedbackColl.updateOne(query,update);
+  revalidatePath('/feedback')
   return Response.json(result)
 }
