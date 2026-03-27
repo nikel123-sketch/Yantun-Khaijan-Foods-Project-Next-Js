@@ -1,7 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const AddFeedback = () => {
+  const route=useRouter()
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -23,14 +25,19 @@ const AddFeedback = () => {
       const data = await res.json();
       console.log(data);
       
+      if (data.insertedId) {
+        alert("Feedback added successfully ✅");
+        form.reset();
+        route.push("/feedback"); // ✅ correct route
+      }
 
-      alert("Feedback added successfully ✅");
-
-      form.reset();
+      
     } catch (error) {
       console.error(error);
       alert("Something went wrong ❌");
     }
+
+    
   };
 
   return (
