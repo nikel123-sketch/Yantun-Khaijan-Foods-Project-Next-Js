@@ -1,5 +1,6 @@
 import React from "react";
 import FeedbackDelete from "../Button/FeedbackDelete";
+import FeedbackUpdate from "../Button/FeedbackUpdate";
 
 const FeedbackCard = ({ feedback}) => {
   const { _id, name, message, date } = feedback;
@@ -18,9 +19,7 @@ const FeedbackCard = ({ feedback}) => {
       {/* Buttons */}
       <div className="mt-4 flex gap-3">
         <FeedbackDelete  feedback={feedback}></FeedbackDelete>
-        <button className="bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition">
-          Update
-        </button>
+        <FeedbackUpdate feedback={feedback}></FeedbackUpdate>
       </div>
     </div>
   );
